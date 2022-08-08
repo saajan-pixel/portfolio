@@ -1,0 +1,11 @@
+@import "../../global.scss";
+
+li {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  &.active {
+    background-color: $primary-color;
+    color: $color-white;
+  }
+}
