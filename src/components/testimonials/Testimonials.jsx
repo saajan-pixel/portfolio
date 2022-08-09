@@ -43,9 +43,9 @@ const Testimonials = () => {
         {data.map((item) => (
           <div className={item.featured ? 'card featured' : 'card'} key={item.id}>
             <div className="card-img">
-              <i class="fa-solid fa-arrows-to-circle"></i>
+              <i className="fa-solid fa-arrows-to-circle"></i>
               <img src={item.img} alt="card-img" />
-              <i class="fa-brands fa-youtube"></i>
+              <i className="fa-brands fa-youtube"></i>
             </div>
 
             <p>{item.desc}</p>

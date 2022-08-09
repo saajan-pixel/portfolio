@@ -7,12 +7,12 @@ const Topbar = ({menuOpen,setMenuOpen}) => {
         <div className="left">
           <a href='#intro' className='logo'>portfolio.</a>
           <div className="icon-item">
-            <em class="fa-solid fa-person icon"></em>
+            <em className="fa-solid fa-person icon"></em>
             <span>+977 9827023304</span>
           </div>
 
           <div className="icon-item">
-            <em class="fa-solid fa-envelope"></em>
+            <em className="fa-solid fa-envelope"></em>
             <span>rcccstha@gmail.com</span>
           </div>
         </div>
