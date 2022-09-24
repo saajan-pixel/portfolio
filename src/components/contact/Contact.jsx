@@ -1,34 +1,53 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import './contact.scss'
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import msgEmail from '../../assets/svg/email.svg'
+import { useForm } from 'react-hook-form';
 
 const Contact = () => {
-  const [sendMsg, setSendMsg] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    reset ,
+    formState: { errors },
+ } = useForm();
+  const form = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSendMsg(true)
+  // console.log(watch('example')); 
 
+  const sendEmail = (e) => {
+    // e.preventDefault();
+    emailjs.sendForm('service_dca96jb', 'template_5qhterj', form.current, 'adCzmnb0bgA9mfVWj')
+      .then(() => {
+        reset()
+        toast("Message sent successfully !!")
+      }, (error) => {
+        toast("Something went wrong !!")
+      });
+  };
 
-  }
   return (
     <div className='contact' id='contact'>
       <div className="left">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpointspanda.com%2Fwp-content%2Fuploads%2F2020%2F03%2Fcontact.png&f=1&nofb=1" alt='cnt-img' />
+        <img src={msgEmail} width="100%" alt='cnt-img' />
       </div>
 
       <div className="right">
         <div className="right-wrapper">
           <h1>Contact.</h1>
-          <form>
-            <input type="email" placeholder="Email.." />
-            <textarea rows='20' placeholder="Message"></textarea>
+          <form ref={form} onSubmit={handleSubmit(sendEmail)}>
+            <input type="text" placeholder="User name.." name='user_name' {...register('name', { required: true })}/>
+            {errors.name && <span className='color-red'>User Name is required</span>}
+            <input type="email" placeholder="Email.." name='user_email' {...register('email', { required: true })} />
+            {errors.email && <span className='color-red'>Email is required</span>}
+            <textarea rows='20' placeholder="Message" name='message'></textarea>
             <div className="btn">
-              <button type="submit" onClick={handleSubmit}>Send</button>
-              {sendMsg && <p>Thanks, I'll reply ASAP!</p>}
-          
+              <button type="submit" >Send</button>
             </div>
-
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>

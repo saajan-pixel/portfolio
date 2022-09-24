@@ -14,12 +14,12 @@ const Menu = ({menuOpen,setMenuOpen}) => {
             </li>
 
             <li onClick={()=> setMenuOpen(false)}>
-                <a href='#works'>Works</a>
+                <a href='#about'>About</a>
             </li>
 
-            <li onClick={()=> setMenuOpen(false)}>
+            {/* <li onClick={()=> setMenuOpen(false)}>
                 <a href='#testimonials'>Testimonials</a>
-            </li>
+            </li> */}
 
             <li onClick={()=> setMenuOpen(false)}>
                 <a href='#contact'>Contact</a>

@@ -1,36 +1,34 @@
 import './intro.scss'
 import { init } from 'ityped'
 import { useEffect, useRef } from 'react'
+import PortfolioImg from '../../assets/svg/programming.svg'
 
 const Intro = () => {
-  const textRef = useRef()
+  const textRef = useRef(null);
 
   useEffect(() => {
+    if (!textRef.current) {
+      return;
+    }
     init(textRef.current, {
       showCursor: false,
-      backDelay: 1500,
-      backSpeed: 60,
-      strings: ["Developer"],
-    });
-  }, [])
-  
+      strings: ['Front-End Developer','Freelancer']
+    })
+  }, [textRef])
+
   return (
     <div className='intro' id='intro'>
       <div className="intro-left">
         <div className="imgContainer">
-          <img src="https://cdni.iconscout.com/illustration/free/thumb/doctor-1668030-1415699.png" alt="intro-img" />
+          <img src={PortfolioImg} alt="intro-img" />
         </div>
       </div>
 
       <div className="intro-right">
         <div className="right-wrapper">
-          <h2>Hi!, I'm</h2>
+          <h2>Hi, I'm</h2>
           <h1>Saajan Shrestha</h1>
-          <ul className='dyna-txt'>
-            <li><span>Developer</span></li>
-            <li><span>Designer</span></li>
-            <li><span>Content Creator</span></li>
-          </ul>
+          <div className='ityped' ref={textRef}></div>
         </div>
       </div>
     </div>

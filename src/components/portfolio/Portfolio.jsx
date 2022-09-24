@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import PortfolioList from '../portfoliolist/PortfolioList'
 import './portfolio.scss'
+
 import { featuredPortfolio, webPortfolio, mobilePortfolio, designPortfolio, contentPortfolio } from '../../data'
 
 const Portfolio = () => {
@@ -20,14 +21,14 @@ const Portfolio = () => {
       id: 'mobile app',
       title: "Mobile App"
     },
-    {
-      id: 'design',
-      title: "Design"
-    },
-    {
-      id: 'branding',
-      title: "Branding"
-    }
+    // {
+    //   id: 'design',
+    //   title: "Design"
+    // },
+    // {
+    //   id: 'branding',
+    //   title: "Branding"
+    // }
   ]
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const Portfolio = () => {
   return (
     <div className='portfolio' id='portfolio'>
       <h1>Portfolio</h1>
+      <div className="portfolio-wrapper">
       <ul>
         {lists.map((list) => <PortfolioList key={list.id} title={list.title} id={list.id} active={selected === list.id} setSelected={setSelected} />)}
       </ul>
@@ -68,6 +70,8 @@ const Portfolio = () => {
 
 
       </div>
+      </div>
+     
     </div>
   )
 }

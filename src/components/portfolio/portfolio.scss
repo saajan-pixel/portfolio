@@ -1,20 +1,28 @@
 @import "../../global.scss";
 
 .portfolio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
+  &-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   h1 {
+    // overflow: hidden;
+    text-align: center;
   }
 
   ul {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     gap: 40px;
     margin-top: 20px;
-
-   
+    // overflow: hidden;
   }
 
   .container {
@@ -23,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // gap: 10px;
+    // gap: 10px;3
     flex-wrap: wrap;
 
     .item {
@@ -50,12 +58,12 @@
         z-index: 1;
       }
 
-      &:hover{
+      &:hover {
         background-color: $primary-color;
-         img{
-            opacity: 0.2;
-            z-index: 0;
-         }
+        img {
+          opacity: 0.2;
+          z-index: 0;
+        }
       }
     }
   }
