@@ -1,8 +1,21 @@
-$primary-color:#15023a;
-$color-white:#fff;
-$color-red:red;
+$primary-color: #15023a;
+$color-white: #fff;
+$color-red: red;
 
+$width: 768px;
 
-.color-red{
-    color: $color-red;
+.color-red {
+  color: $color-red;
+}
+
+@mixin mobile {
+  @media (max-width:#{$width}) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
 }

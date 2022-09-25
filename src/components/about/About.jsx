@@ -26,17 +26,16 @@ const About = () => {
 
           <div className="links">
             <a href="https://www.linkedin.com/in/saajan-shrestha-148613197/">
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
 
             <a href="https://github.com/saajan-pixel">
-              <i class="fa-brands fa-github"></i>
+              <i className="fa-brands fa-github"></i>
             </a>
           </div>
 
           <div className="myResume">
             <button type="button" className="btn-67">
-              {/* Saajan's Resume.pdf */}
               <a href={Resume} download="Saajan's Resume">
                 Download Resume
               </a>

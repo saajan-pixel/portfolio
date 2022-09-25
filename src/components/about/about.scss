@@ -1,3 +1,4 @@
+@import '../../global.scss';
 .about {
   padding: 0 20px;
 
@@ -191,6 +192,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+
+        @include smallMobile{
+          flex-direction: column;
+          justify-content: center;
+        }
 
       }
     }

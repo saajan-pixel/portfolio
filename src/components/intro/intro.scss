@@ -1,7 +1,14 @@
+@import '../../global.scss';
+
 .intro {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+
+  @include mobile{
+    flex-direction: column;
+    align-items: center;
+  }
   .intro-left {
     flex: 1;
     overflow: hidden;
@@ -10,17 +17,23 @@
     
 
     .imgContainer {
-      width: 50vw;
       padding:20px;
       border-radius: 20%;
       display: flex;
       justify-content: center;
+
+      img{
+        max-width: 100%;
+        width: 700px;
+        object-fit: cover;
+      }
     }
   }
 
   .intro-right {
     flex: 1;
     display: flex;
+    padding:20px;
     justify-content: center;
     align-items: center;
 
@@ -45,4 +58,6 @@
     }
   }
 }
+
+
 
