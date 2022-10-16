@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import "./topbar.scss";
 
 const Topbar = ({ menuOpen, setMenuOpen }) => {
+  const anchor = useRef();
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
@@ -8,18 +10,35 @@ const Topbar = ({ menuOpen, setMenuOpen }) => {
           <a href="#intro" className="logo">
             portfolio.
           </a>
-          <div className="icon-item">
-            <em className="fa-solid fa-phone"></em>
-            <span>+977 9827023304</span>
-          </div>
-
-          <div className="icon-item">
-            <em className="fa-solid fa-envelope"></em>
-            <span>rcccstha@gmail.com</span>
-          </div>
         </div>
 
         <div className="right">
+          <ul className="right-list">
+            <li>
+              <a href="#intro" ref={anchor}>
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="#about" ref={anchor}>
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#portfolio" ref={anchor}>
+                Portfolio
+              </a>
+            </li>
+
+            <li>
+              <a href="#contact" ref={anchor}>
+                Contact
+              </a>
+            </li>
+          </ul>
+
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>
             <span className="line2"></span>

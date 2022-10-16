@@ -9,6 +9,7 @@
   top: 0;
   z-index: 3;
   transition: all 1s ease;
+  box-shadow: 2px 3px 4px #eee7e7;
 
   .wrapper {
     padding: 10px 30px;
@@ -31,7 +32,7 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        @include mobile{
+        @include mobile {
           display: none;
         }
 
@@ -48,14 +49,42 @@
 
     .right {
       display: flex;
-      
+
+      &-list {
+        display: flex;
+        @include mobile{
+          display: none;
+        }
+
+        li {
+          font-weight: bold;
+          list-style: none;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+        }
+
+        a:hover {
+          border-bottom: 4px solid crimson;
+        }
+
+        .link-active{
+          border-bottom: 4px solid crimson;
+        }
+      }
+
       .hamburger {
         width: 32px;
         height: 25px;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: space-between;
         cursor: pointer;
+
+        @include mobile{
+          display: flex;
+        }
 
         span {
           width: 100%;
@@ -68,27 +97,26 @@
     }
   }
 
-
   /* A class selector. It is saying that if the topbar has the class active, then change the background
   color to the primary color and the color to white. */
-  &.active{
+  &.active {
     background-color: $primary-color;
     color: $color-white;
 
-    .hamburger{
-        span{
-            &:first-child{
-                background-color: $color-white;
-                transform: rotate(45deg);
-            }
-            &:nth-child(2){
-                opacity: 0;
-            }
-            &:last-child{
-                background-color: $color-white;
-                transform: rotate(-45deg);
-            }
+    .hamburger {
+      span {
+        &:first-child {
+          background-color: $color-white;
+          transform: rotate(45deg);
         }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          background-color: $color-white;
+          transform: rotate(-45deg);
+        }
+      }
     }
   }
 }
