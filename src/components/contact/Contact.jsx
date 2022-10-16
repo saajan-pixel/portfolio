@@ -36,37 +36,43 @@ const Contact = () => {
 
   return (
     <div className="contact" id="contact">
-      <div className="left">
-        <img src={msgEmail} width="100%" alt="cnt-img" />
-      </div>
-      <div className="right">
-        <div className="right-wrapper">
-          <h1>Contact.</h1>
-          <form ref={form} onSubmit={handleSubmit(sendEmail)}>
-            <input
-              type="text"
-              placeholder="User name.."
-              name="name"
-              {...register("name", { required: true })}
-            />
-            {errors.name && (
-              <span className="color-red">User Name is required</span>
-            )}
-            <input
-              type="email"
-              placeholder="Email.."
-              name="email"
-              {...register("email", { required: true })}
-            />
-            {errors.email && (
-              <span className="color-red">Email is required</span>
-            )}
-            <textarea rows="20" placeholder="Message" name="message"></textarea>
-            <div className="btn">
-              <button type="submit">Send</button>
-            </div>
-          </form>
-          <ToastContainer />
+      <h1>Contact.</h1>
+      <div className="contact-wrapper">
+        <div className="left">
+          <img src={msgEmail} width="100%" alt="cnt-img" />
+        </div>
+        <div className="right">
+          <div className="right-wrapper">
+            <form ref={form} onSubmit={handleSubmit(sendEmail)}>
+              <input
+                type="text"
+                placeholder="User name.."
+                name="name"
+                {...register("name", { required: true })}
+              />
+              {errors.name && (
+                <span className="color-red">User Name is required</span>
+              )}
+              <input
+                type="email"
+                placeholder="Email.."
+                name="email"
+                {...register("email", { required: true })}
+              />
+              {errors.email && (
+                <span className="color-red">Email is required</span>
+              )}
+              <textarea
+                rows="20"
+                placeholder="Message"
+                name="message"
+              ></textarea>
+              <div className="btn">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+            <ToastContainer />
+          </div>
         </div>
       </div>
     </div>

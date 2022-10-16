@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family:monospace, Helvetica,'Courier New', Courier, Courier-Bold, Courier-Oblique, Courier-BoldOblique,
+    Helvetica-Bold, Helvetica-Oblique, Helvetica-BoldOblique;
+}
+
 .App {
   height: 100vh;
   .sections {
@@ -7,8 +14,8 @@
     top: 70px;
 
     // snap scrolling type
-    scroll-behavior:smooth;
-    scroll-snap-type: y mandatory;
+    // scroll-behavior: smooth;
+    // scroll-snap-type: y mandatory;
     scrollbar-width: none; //for firefox
     &::-webkit-scrollbar {
       display: none; //for chrome,edger,safari....
@@ -22,8 +29,3 @@
     }
   }
 }
-
-
-
-
-
