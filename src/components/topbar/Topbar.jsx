@@ -1,8 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./topbar.scss";
 
 const Topbar = ({ menuOpen, setMenuOpen }) => {
-  const anchor = useRef();
+  const navList = [
+    { id: 1, text: "Home", href: "#intro" },
+    { id: 2, text: "About", href: "#about" },
+    { id: 3, text: "Portfolio", href: "#portfolio" },
+    { id: 4, text: "Contact", href: "#contact" },
+  ];
+  const [activeId, setActiveId] = useState(1);
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
@@ -14,29 +20,16 @@ const Topbar = ({ menuOpen, setMenuOpen }) => {
 
         <div className="right">
           <ul className="right-list">
-            <li>
-              <a href="#intro" ref={anchor}>
-                Home
-              </a>
-            </li>
-
-            <li>
-              <a href="#about" ref={anchor}>
-                About
-              </a>
-            </li>
-
-            <li>
-              <a href="#portfolio" ref={anchor}>
-                Portfolio
-              </a>
-            </li>
-
-            <li>
-              <a href="#contact" ref={anchor}>
-                Contact
-              </a>
-            </li>
+            {navList.map((item) => (
+              <li key={item.id} onClick={() => setActiveId(item.id)}>
+                <a
+                  href={item.href}
+                  className={activeId === item.id ? "Active" : "Inactive"}
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))}
           </ul>
 
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
