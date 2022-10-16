@@ -1,14 +1,15 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./topbar.scss";
 
 const Topbar = ({ menuOpen, setMenuOpen }) => {
+  const [activeId, setActiveId] = useState(1);
   const navList = [
     { id: 1, text: "Home", href: "#intro" },
     { id: 2, text: "About", href: "#about" },
     { id: 3, text: "Portfolio", href: "#portfolio" },
     { id: 4, text: "Contact", href: "#contact" },
   ];
-  const [activeId, setActiveId] = useState(1);
+
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
